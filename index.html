@@ -105,12 +105,12 @@
             let n = num.value;
             const response  = await fetch("http://localhost:8080/primes/" + n );
             let primes = await response.json();
-            document.getElementById("primes").innerText = primes;
+            document.getElementById("primes").innerText = true;
         }
         async function cipher() {
             let text = document.getElementById("text");
             let n = text.value;
-            const response  = await fetch("http://localhost:8000/ciphers/caesar/" + n +"/3");
+            const response  = await fetch("http://localhost:8001/ciphers/caesar/" + n +"/3");
             let cipher = await response.json();
             document.getElementById("cipher").innerText = cipher.cipher; // Access the "cipher" property
         }
