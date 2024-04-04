@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+    <div class="row" id="login"></div>
     <div class="container">
         <section class="section">
             <div>
@@ -63,13 +64,17 @@
             <label id="cipher"></label>
         </section>
     </div>
+    <script src="configuration.js"></script>
     <script>
+        let hosts = configuration.hosts;
+        displayLogin();
+
         async function add() {
             let operand1Input = document.getElementById("operand1");
             let operand2Input = document.getElementById("operand2");
             let n = operand1Input.value;
             let m = operand2Input.value;
-            const response  = await fetch("http://localhost:3000/add/" + n + "/" + m);
+            const response  = await fetch(`${hosts.arithmetic_service}/add/${n}/${m}`);
             let sum = await response.json();
             document.getElementById("sum").innerText = sum;
         }
@@ -103,7 +108,8 @@
         async function primes() {
             let num = document.getElementById("num");
             let n = num.value;
-            const response  = await fetch("http://localhost:8080/primes/" + n );
+            const headers = { 'Authorization': `Bearer ${configuration.token}` };
+            const response = await fetch(`${hosts.primes_service}/primes/${n}`, { headers });
             let primes = await response.json();
             document.getElementById("primes").innerText = primes;
         }
