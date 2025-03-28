@@ -87,7 +87,7 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('response').innerHTML = `<strong>Receipt Submitted Successfully!</strong><br>ID:<pre>${data.id}</pre>`;
+            document.getElementById('response').innerHTML = `<strong>Receipt Submitted Successfully!</strong><br>ID: ${data.id}`;
         })
         .catch(error => {
             document.getElementById('response').innerHTML = `<strong>Error:</strong> ${error.message}`;
@@ -105,7 +105,7 @@
             return response.json();
         })
         .then(data => {
-            document.getElementById('pointsResponse').innerHTML = `<strong>🏆 Points:</strong> <pre>${data.points}</pre>`;
+            document.getElementById('pointsResponse').innerHTML = `<strong>🏆 Points:</strong> ${data.points}`;
         })
         .catch(error => {
             document.getElementById('pointsResponse').innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
