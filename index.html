@@ -24,7 +24,7 @@
             color: #333;
         }
         textarea, input, button {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
@@ -54,7 +54,7 @@
 <body>
 
 <div class="container">
-    <h1>📚 Receipt Processor API</h1>
+    <h1>Receipt Processor API</h1>
 
     <!-- Receipt Input -->
     <h3>Submit Receipt (JSON)</h3>
@@ -87,10 +87,10 @@
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('response').innerHTML = `<strong>✅ Receipt Submitted Successfully!</strong><br>ID: <pre>${data.id}</pre>`;
+            document.getElementById('response').innerHTML = `<strong>Receipt Submitted Successfully!</strong><br>ID:<pre>${data.id}</pre>`;
         })
         .catch(error => {
-            document.getElementById('response').innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
+            document.getElementById('response').innerHTML = `<strong>Error:</strong> ${error.message}`;
         });
     }
 
